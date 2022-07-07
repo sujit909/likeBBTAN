@@ -21,14 +21,6 @@ let rightArrow = false;
 const BG_IMG = new Image();
 BG_IMG.src = "img/background.jpeg";
 
-const LEVEL_IMG = new Image();
-LEVEL_IMG.src = "img/levelup.png";
-
-const LIFE_IMG = new Image();
-LIFE_IMG.src = "img/life.png";
-
-const SCORE_IMG = new Image();
-SCORE_IMG.src = "img/score.png";
 
 //PADDLE
 const paddle = {
@@ -156,7 +148,7 @@ const brick = {
     add : 1,
     offSetLeft : 9,
     offSetTop : 20,
-    marginTop : 40,
+    marginTop : 60,
     fillColor : "#111",
     strokeColor : "#BFA53C"
 }
@@ -225,12 +217,12 @@ function ballBrickCollision(){
 }
 
 // show game stats
-function showGameStats(text, textX, textY, img, imgX, imgY){
-    ctx.fillStyle = "#FFF";
+function showGameStats(text, textX, textY, text1, text1X, text1Y){
+    ctx.fillStyle = "#000";
     ctx.font = "25px Times New Roman";
     ctx.fillText(text, textX, textY);
-
-    ctx.drawImage(img, imgX, imgY, width = 25, height = 25);
+    ctx.fillText(text1, text1X, text1Y);
+    // ctx.drawImage(img, imgX, imgY, width = 25, height = 25);
 }
 
 // DRAW FUNCTION
@@ -242,11 +234,11 @@ function draw(){
     drawBricks();
     
     // SHOW SCORE
-    showGameStats(SCORE, 35, 25, SCORE_IMG, 5, 5);
+    showGameStats(SCORE, 35, 25, "SCORE", 5, 50);
     // SHOW LIVES
-    showGameStats(LIFE, bbtan.width - 25, 25, LIFE_IMG, bbtan.width-55, 5); 
+    showGameStats(LIFE, bbtan.width - 25, 25, "LIFE", bbtan.width-55, 50); 
     // SHOW LEVEL
-    showGameStats(LEVEL, bbtan.width/2, 25, LEVEL_IMG, bbtan.width/2 - 30, 5);
+    showGameStats(LEVEL, bbtan.width/2, 25, "LEVEL", bbtan.width/2 - 30, 50);
 }
 
 // game over
